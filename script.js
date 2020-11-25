@@ -957,3 +957,26 @@ function dirReduc(arr){
 
   }
  console.log (dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
+
+ function sumOfDivided(lst) {
+    const simpl = [ 2, 3,  5,  7];
+    let sum = 0;
+    const newArr=[]
+    for (i = 0; i < simpl.length; i += 1) {
+      lst.reduce((acc, el, ind, arr) => {
+        if (arr[ind] % simpl[i] === 0) {
+          newArr.push(simpl[i]);
+      
+       newArr.push(arr[ind]);
+       }
+       if (arr[ind] % simpl[i] === 0 && arr[ind+1] % simpl[i] === 0 ){
+          newArr.push(simpl[i])
+          sum= arr[ind]+arr[ind+1]
+          newArr.push(sum)
+       }
+      }, []);
+    }
+    return  newArr;
+  }
+  console.log(sumOfDivided([12, 15]))
+  console.log(sumOfDivided([15,21,24,30,45]))
